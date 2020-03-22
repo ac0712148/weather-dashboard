@@ -1,0 +1,22 @@
+body {
+    background-color: red;
+}
+/* Navbar Styling */
+#navbar-title {
+    margin-left: 145px;
+}
+/* Sidebar Styling */
+.sidebar {
+    padding-bottom: 100vh;
+    background-color: white;
+}
+.sidebar-sticky {
+    margin-top: 50px;
+}
+/* Main Page */
+#content {
+    margin-top: 50px;
+}
+.top-block, .bottom-block {
+    background-color: white;
+}
