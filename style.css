@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: lightgray;
 }
 /* Navbar Styling */
 #navbar-title {
@@ -10,7 +10,7 @@ body {
     padding-bottom: 100vh;
     background-color: white;
 }
-.sidebar-sticky {
+.search-form {
     margin-top: 50px;
 }
 /* Main Page */
@@ -20,3 +20,16 @@ body {
 .top-block, .bottom-block {
     background-color: white;
 }
+.cards{
+    margin-left: 25px;
+}
+.button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+  }
