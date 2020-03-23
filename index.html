@@ -8,6 +8,11 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./script.js"></script>
     <!--NavBar-->
     <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3" id="navbar-title">Weather Dashboard</a>
@@ -22,16 +27,19 @@
                         <span>Search for a City:</span>
                     </h6>
                     <input class="form-control" type="text" placeholder="Search">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Popular Searches:</span>
+                    </h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            Dashboard <span class="sr-only">(current)</span>
+                            San Diego <span class="sr-only">(current)</span>
                         </a>
                         </li>
                     </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved reports</span>
+                        <span>Saved Cities:</span>
                     </h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
@@ -48,20 +56,21 @@
             <main id="content-holder" class="col-12 col-md-9 col-xl-10 bd-content" style="display: block;">
                 <div id="content">
                     <div class="top-block">
-                        
+                        <h1 id="city"></h1>
+                        <ul id="list">
+                            <li id="temperature"></li>
+                            <li id="humidity"></li>
+                            <li id="wind-speed"></li>
+                            <li id="uv-index"></li>
+                        </ul>
                     </div>
                     <div class="bottom-block">
-                        
+                        <h2>5-Day Forecast:</h2>
                     </div>
                 </div>
             </main>
             <!--End Page Content-->
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 </body>
 </html>
