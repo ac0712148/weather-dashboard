@@ -14,14 +14,29 @@ body {
     margin-top: 50px;
 }
 /* Main Page */
+#city {
+    padding: 10px;
+}
 #content {
     margin-top: 50px;
 }
+#list {
+    list-style-type: none;
+   }
+#forecast-title{
+    padding: 10px;
+}
 .top-block, .bottom-block {
     background-color: white;
+    border-radius: 15px;
 }
 .cards{
     margin-left: 25px;
+}
+.card-header{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 22px;
 }
 .button {
     background-color: #007bff;
