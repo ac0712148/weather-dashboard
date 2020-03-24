@@ -33,8 +33,13 @@ function getCurrentWeather(){
             url: "http://api.openweathermap.org/data/2.5/uvi?appid="+api_key+"&lat="+lat+"&lon="+lon,
             method: "GET"
         }).then(function(uv_data){
-            uv_index = uv_data.value;
+            uv_index = parseInt(uv_data.value);
             $("#uv-index").text("UV Index: " + uv_index);
+            if(uv_index >= 11){$("#uv-index").css("background-color","violet");}
+            else if(uv_index >= 8){$("#uv-index").css("background-color","red");}
+            else if(uv_index >= 6){$("#uv-index").css("background-color","orange");}
+            else if(uv_index >= 3){$("#uv-index").css("background-color","yellow");}
+            else if(uv_index >= 0){$("#uv-index").css("background-color","green");}
         })
         $("#city").text(city);
         $('#wicon').attr('src', iconurl);
@@ -67,7 +72,7 @@ function getForecast(){
             $(".hum"+j).text("Humidity: " + forecast_humid + "%");
             j++;
         }
-        j=1
+        j=1;
     })
 }
 displayDefault();
