@@ -22,13 +22,18 @@ body {
 }
 #list {
     list-style-type: none;
-   }
+}
+#uv-index{
+    margin-right: 882px;
+}
 #forecast-title{
     padding: 10px;
 }
 .top-block, .bottom-block {
     background-color: white;
     border-radius: 15px;
+    padding-bottom: 1px;
+    margin-top: 10px
 }
 .cards{
     margin-left: 25px;
