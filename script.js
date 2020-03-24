@@ -6,13 +6,14 @@ var forecast_temp;
 var forecast_humid;
 var j = 1;
 
+var saves = {
+    cities: []
+};
+
 function displayDefault(){
     search = "san+diego";
     getCurrentWeather();
     getForecast();
-}
-function clearData(){
-    
 }
 function getCurrentWeather(){
     $.ajax({
@@ -26,7 +27,8 @@ function getCurrentWeather(){
         var uv_index;
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-    
+        var iconcode = response.weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/uvi?appid="+api_key+"&lat="+lat+"&lon="+lon,
             method: "GET"
@@ -34,11 +36,19 @@ function getCurrentWeather(){
             uv_index = uv_data.value;
             $("#uv-index").text("UV Index: " + uv_index);
         })
-    
         $("#city").text(city);
+        $('#wicon').attr('src', iconurl);
         $("#temperature").text("Temperature: " + temperature.toFixed(2) + "°F");
         $("#humidity").text("Humidity: " + humidity + "%");
         $("#wind-speed").text("Wind Speed: " + wind_speed + " MPH");
+        saves.cities.push(city);
+        var uniqueNames = [];
+        $.each(saves.cities, function(i, el){
+        if($.inArray(el, uniqueNames) === -1)
+            uniqueNames.push(el);
+        });
+        saves.cities=uniqueNames;
+        console.log(saves);
     })
 }
 function getForecast(){
@@ -49,7 +59,9 @@ function getForecast(){
         for(var i = 0; i < five_day_data.list.length; i+=8) {
             forecast_temp = parseInt(five_day_data.list[i].main.temp) * 1.8 - 459.67;
             forecast_humid = five_day_data.list[i].main.humidity;
-    
+            var iconcode = five_day_data.list[i].weather[0].icon;
+            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+            $('#wicon'+j).attr('src', iconurl);
             $(".head"+j).text(five_day_data.list[i].dt_txt);
             $(".temp"+j).text("Temperature: " + forecast_temp.toFixed(2) + "°F");
             $(".hum"+j).text("Humidity: " + forecast_humid + "%");
@@ -59,9 +71,15 @@ function getForecast(){
     })
 }
 displayDefault();
+if(localStorage.getItem("saves") !== null){
+    var saves = JSON.parse(localStorage.getItem("saves"));
+}
 $("#run-search").on("click", function(event) {
+    
     event.preventDefault();
     search=$("#search-term").val().trim();
     getCurrentWeather();
     getForecast();
+    localStorage.setItem("saves", JSON.stringify(saves));
+    setUpHistory();
   });
