@@ -28,9 +28,9 @@ function getCurrentWeather(){
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         var iconcode = response.weather[0].icon;
-        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/uvi?appid="+api_key+"&lat="+lat+"&lon="+lon,
+            url: "https://api.openweathermap.org/data/2.5/uvi?appid="+api_key+"&lat="+lat+"&lon="+lon,
             method: "GET"
         }).then(function(uv_data){
             uv_index = parseInt(uv_data.value);
@@ -56,14 +56,14 @@ function getCurrentWeather(){
         console.log(saves);
     })
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + search + "&appid=" + api_key,
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&appid=" + api_key,
         method: "GET"
     }).then(function(five_day_data){
         for(var i = 0; i < five_day_data.list.length; i+=8) {
             forecast_temp = parseInt(five_day_data.list[i].main.temp) * 1.8 - 459.67;
             forecast_humid = five_day_data.list[i].main.humidity;
             var iconcode = five_day_data.list[i].weather[0].icon;
-            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+            var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
             $('#wicon'+j).attr('src', iconurl);
             $(".head"+j).text(five_day_data.list[i].dt_txt);
             $(".temp"+j).text("Temperature: " + forecast_temp.toFixed(2) + "°F");
