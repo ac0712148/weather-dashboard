@@ -13,7 +13,6 @@ var saves = {
 function displayDefault(){
     search = "san+diego";
     getCurrentWeather();
-    getForecast();
 }
 function getCurrentWeather(){
     $.ajax({
