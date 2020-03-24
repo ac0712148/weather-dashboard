@@ -55,8 +55,6 @@ function getCurrentWeather(){
         saves.cities=uniqueNames;
         console.log(saves);
     })
-}
-function getForecast(){
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/forecast?q=" + search + "&appid=" + api_key,
         method: "GET"
@@ -75,6 +73,7 @@ function getForecast(){
         j=1;
     })
 }
+
 displayDefault();
 if(localStorage.getItem("saves") !== null){
     var saves = JSON.parse(localStorage.getItem("saves"));
@@ -84,7 +83,6 @@ $("#run-search").on("click", function(event) {
     event.preventDefault();
     search=$("#search-term").val().trim();
     getCurrentWeather();
-    getForecast();
     localStorage.setItem("saves", JSON.stringify(saves));
     setUpHistory();
   });
