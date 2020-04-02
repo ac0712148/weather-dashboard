@@ -1,7 +1,7 @@
 $(function() {
     // values used to configure open weather api requests
     var openWeatherMapAppId = "69f200b9e911acf86732762db74cef27"; // add your own key to run
-    var openWeatherMapApiUrl = "http://api.openweathermap.org/data/2.5/";
+    var openWeatherMapApiUrl = "https://api.openweathermap.org/data/2.5/";
   
     $("#search-button").on("click", function() {
       var searchValue = $("#search-value").val();
@@ -117,7 +117,7 @@ $(function() {
   
               var img = $("<img>").attr(
                 "src",
-                "http://openweathermap.org/img/w/" +
+                "https://openweathermap.org/img/w/" +
                   data.list[i].weather[0].icon +
                   ".png"
               );
